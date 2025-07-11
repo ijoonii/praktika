@@ -10,17 +10,16 @@
     <form th:action="@{/product/create}" th:method="post" th:object="${product}">
         <div>
             <div>
-                <p>Название</p>
-                <input type="text" name="name">
+                Название объявления: <input type="text" name="name">
             </div>
             <div>
-                <input type="text" name="description">
+                Описание: <input type="text" name="description">
             </div>
             <div>
-                <input type="number" name="price">
+                Цена: <input type="number" name="price">
             </div>
             <div>
-                <input type="text" name="author">
+                Ваше имя: <input type="text" name="author">
             </div>
             <div>
                 <button type="submit">Добавить</button>

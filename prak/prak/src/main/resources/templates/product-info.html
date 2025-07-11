@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${product.name}">Название товара</title>
+</head>
+<body>
+<div>
+    <div>
+        <p th:text="${product.name}">Name</p>
+    </div>
+    <div>
+        <p th:text="'Автор объявления: ' + ${product.author}">AUTHOR</p>
+    </div>
+    <div>
+    <div>
+        Фото<br>IMAGE
+    </div>
+    </div>
+    <div>
+        Описание<p th:text="${product.description}">TEXT</p>
+    </div>
+    <div>
+        <p th:text="'Цена: ' + ${product.price} + ' руб.'">price</p>
+    </div>
+</div>
+</body>
+</html>

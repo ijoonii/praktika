@@ -14,7 +14,8 @@
         <tr th:each="product : ${products}">
             <td><span th:text="${product.name}"> Name</span></td>
             <td><span th:text="${product.price}"> 0</span></td>
-            <td><span th:text="${product.author}"> Mathieu Ball</span></td>
+            <td><span th:text="${product.author}"> author</span></td>
+            <td><a th:href="@{product/{id}(id=${product.id})}">Подробнее</a></td>
         </tr>
     </table>
 </div>
