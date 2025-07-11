@@ -1,27 +1,27 @@
 package com.example.prak.repository.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
 @Table(name = "products")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column("id")
     private Long id;
-    @Column(name = "name")
+    @Column("name")
     private String name;
-    @Column(name = "description", columnDefinition = "text")
+    @Column("description")
     private String description;
-    @Column(name = "price")
+    @Column("price")
     private int price;
 //    private String category;
 //    private String city;
-    @Column(name = "author")
+    @Column("author")
     private String author;
 
     public Long getId() {
