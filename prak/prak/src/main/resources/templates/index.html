@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Главная страница</title>
+</head>
+<body>
+<h1>Привет</h1>
+<div>
+    <table>
+        <tr th:if="${products == null}">
+            <td>Объявлений нет. Вы можете создать свое по кнопке ниже.</td>
+        </tr>
+        <tr th:each="product : ${products}">
+            <td><span th:text="${product.name}"> Name</span></td>
+            <td><span th:text="${product.price}"> 0</span></td>
+            <td><span th:text="${product.author}"> Mathieu Ball</span></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a th:href="@{product/create}">Добавить товар</a>
+</div>
+</body>
+</html>
