@@ -2,6 +2,8 @@ package com.example.prak.repository.model;
 
 import jakarta.persistence.*;
 
+//ЭТО ТОЖЕ НУЖНО САМОМУ ДОБАВЛЯТЬ
+
 @Entity
 @Table(name = "categories")
 public class Category {

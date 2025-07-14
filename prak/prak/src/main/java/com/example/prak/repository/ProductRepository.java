@@ -10,5 +10,5 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     List<Product> findByNameContainingIgnoreCase(String name);
 
-
+    List<Product> findAllByCategory_Id(Long categoryId);
 }

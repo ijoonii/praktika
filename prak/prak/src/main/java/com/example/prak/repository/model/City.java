@@ -3,6 +3,8 @@ package com.example.prak.repository.model;
 
 import jakarta.persistence.*;
 
+//ГОРОДА НУЖНО ДОБАВЛЯТЬ САМОМУ В БД
+
 @Entity
 @Table(name = "city")
 public class City {

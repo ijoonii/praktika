@@ -37,4 +37,8 @@ public class ProductService {
     public List<Product> getAllByCity(Long cityId) {
         return productRepository.findAllByCity_Id(cityId);
     }
+
+    public List<Product> getAllByCategory(Long categoryId) {
+        return productRepository.findAllByCategory_Id(categoryId);
+    }
 }

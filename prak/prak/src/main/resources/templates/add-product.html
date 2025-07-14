@@ -19,8 +19,13 @@
                 Цена: <input type="number" name="price">
             </div>
             <div>
-                <select required name="city">
+                Город: <select required name="city">
                     <option th:each="city : ${cities}" th:text="${city.name}">
+                </select>
+            </div>
+            <div>
+                Категория: <select required name="category">
+                    <option th:each="category : ${categories}" th:text="${category.name}">
                 </select>
             </div>
             <div>

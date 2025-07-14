@@ -22,6 +22,15 @@
     </form>
 </div>
 <div>
+    <p>Поиск по категории</p>
+    <form th:action="@{/product/search/category}" method="get">
+        <select name="categoryId">
+            <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}" th:selected="${category.id == selectedCategoryId}">CATEGORY</option>
+        </select>
+        <input type="submit" value="Найти">
+    </form>
+</div>
+<div>
     <table>
         <tr th:if="${products.empty}">
             <td>Объявлений нет. Вы можете создать свое по кнопке ниже.</td>
