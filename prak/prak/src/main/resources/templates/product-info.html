@@ -13,9 +13,10 @@
         <p th:text="'Автор объявления: ' + ${product.author}">AUTHOR</p>
     </div>
     <div>
+        <p th:text="'Город: ' + ${product.city.name}"> City</p>
+    </div>
     <div>
         Фото<br>IMAGE
-    </div>
     </div>
     <div>
         Описание<p th:text="${product.description}">TEXT</p>

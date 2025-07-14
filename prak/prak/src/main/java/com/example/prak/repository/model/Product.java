@@ -1,27 +1,31 @@
 package com.example.prak.repository.model;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
 
+@Entity
 @Table(name = "products")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
     @Id
-    @Column("id")
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column("name")
+    @Column(name = "name")
     private String name;
-    @Column("description")
+    @Column(name = "description", columnDefinition = "text")
     private String description;
-    @Column("price")
+    @Column(name = "price")
     private int price;
-//    private String category;
-//    private String city;
-    @Column("author")
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
+    @Column(name = "author")
     private String author;
 
     public Long getId() {
@@ -54,6 +58,22 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public String getAuthor() {
