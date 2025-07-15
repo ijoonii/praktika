@@ -10,13 +10,14 @@
         <p th:text="${product.name}">Name</p>
     </div>
     <div>
+        Картинки<br>
+        <img th:each="image : ${images}" th:src="@{/images/{id}(id=${image.id})}">
+    </div>
+    <div>
         <p th:text="'Автор объявления: ' + ${product.author}">AUTHOR</p>
     </div>
     <div>
         <p th:text="'Город: ' + ${product.city.name}"> City</p>
-    </div>
-    <div>
-        Фото<br>IMAGE
     </div>
     <div>
         Категория: <span th:text="${product.category.name}">CATEGORY</span>

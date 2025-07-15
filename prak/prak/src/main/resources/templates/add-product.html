@@ -7,7 +7,7 @@
 <body>
 <h2>Введите информацию о товаре</h2>
 <div class="product-form">
-    <form th:action="@{/product/create}" th:method="post" th:object="${product}">
+    <form th:action="@{/product/create}" th:method="post" th:object="${product}" enctype="multipart/form-data">
         <div>
             <div>
                 Название объявления: <input type="text" name="name">
@@ -20,16 +20,25 @@
             </div>
             <div>
                 Город: <select required name="city">
-                    <option th:each="city : ${cities}" th:text="${city.name}">
+                    <option th:each="city : ${cities}" th:text="${city.name}" th:value="${city.id}">
                 </select>
             </div>
             <div>
                 Категория: <select required name="category">
-                    <option th:each="category : ${categories}" th:text="${category.name}">
+                    <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.id}">
                 </select>
             </div>
             <div>
                 Ваше имя: <input type="text" name="author">
+            </div>
+            <div>
+                1 фотография: <input type="file" name="file1" accept="image/*">
+            </div>
+            <div>
+                2 фотография: <input type="file" name="file2">
+            </div>
+            <div>
+                3 фотография: <input type="file" name="file3">
             </div>
             <div>
                 <button type="submit">Добавить</button>
