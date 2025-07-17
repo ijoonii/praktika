@@ -50,32 +50,18 @@ public class ProductController {
         return model;
     }
 
-    @GetMapping("/product/search")
-    public ModelAndView searchByName(ModelAndView model, @RequestParam(name = "productName", required = false) String productName) {
+    @GetMapping("product/search")
+    public ModelAndView search(ModelAndView model,
+                               @RequestParam(name = "productName", required = false) String productName,
+                               @RequestParam(name = "cityId", required = false) Long cityId,
+                               @RequestParam(name = "categoryId", required = false) Long categoryId
+                               ) {
         model.setViewName("index");
-        model.addObject("products", productService.getAllByName(productName));
-        model.addObject("cities", cityService.getCities());
-        model.addObject("categories", categoryService.getCategories());
-        return model;
-    }
-
-    @GetMapping("/product/search/city")
-    public ModelAndView searchByCity(ModelAndView model, @RequestParam(name = "cityId", required = false) Long cityId) {
-        model.setViewName("index");
-        model.addObject("products", productService.getAllByCity(cityId));
-        model.addObject("cities", cityService.getCities());
-        model.addObject("categories", categoryService.getCategories());
-        model.addObject("selectedCityId", cityId);
-        return model;
-    }
-
-    @GetMapping("/product/search/category")
-    public ModelAndView searchByCategory(ModelAndView model, @RequestParam(name = "categoryId", required = false) Long categoryId) {
-        model.setViewName("index");
-        model.addObject("products", productService.getAllByCategory(categoryId));
+        model.addObject("products", productService.searchProducts(productName, cityId, categoryId));
         model.addObject("cities", cityService.getCities());
         model.addObject("categories", categoryService.getCategories());
         model.addObject("selectedCategoryId", categoryId);
+        model.addObject("selectedCityId", cityId);
         return model;
     }
 

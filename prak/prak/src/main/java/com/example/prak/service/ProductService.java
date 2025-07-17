@@ -60,6 +60,15 @@ public class ProductService {
         return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
+    public List<Product> searchProducts(String name, Long cityId, Long categoryId) {
+        if ((name == null || name.isBlank())
+                && cityId == null
+                && categoryId == null) {
+            return (List<Product>) productRepository.findAll();
+        }
+        return productRepository.searchProducts(name, cityId, categoryId);
+    }
+
     public List<Product> getAllByName(String name) {
         if (name != null) return productRepository.findByNameContainingIgnoreCase(name);
         else return (List<Product>) getAll();
